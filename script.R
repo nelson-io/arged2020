@@ -49,3 +49,11 @@ model_data <- list()
 
 model_data$app_alumno <- app_alumno %>% 
   select(!contains("ponderador_"))
+
+
+
+# Agregamos el df de las escuelas
+df_escuelas <- import("https://gitlab.com/AxEeduc/datos/-/raw/master/csv_files/app_escuela.csv?inline=false")
+
+
+df_alumno<- merge(app_alumno,df_escuelas,by.x="escuela_id",by.y="id")
