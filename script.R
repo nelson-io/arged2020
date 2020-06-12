@@ -57,3 +57,17 @@ df_escuelas <- import("https://gitlab.com/AxEeduc/datos/-/raw/master/csv_files/a
 
 
 df_alumno<- merge(app_alumno,df_escuelas,by.x="escuela_id",by.y="id")
+
+
+# transformamos a booleanas las variables
+df_alumno$tecnica<- as.logical(ifelse(df_alumno$tecnica=="t",1,0))
+df_alumno$tiene_cable<- as.logical(ifelse(df_alumno$tiene_cable=="si",1,0))
+df_alumno$tiene_notebook<- as.logical(ifelse(df_alumno$tiene_notebook=="si",1,0))
+df_alumno$tiene_pc<- as.logical(ifelse(df_alumno$tiene_pc=="si",1,0))
+df_alumno$tiene_tablet<- as.logical(ifelse(df_alumno$tiene_tablet=="si",1,0))
+df_alumno$tiene_celular<- as.logical(ifelse(df_alumno$tiene_celular=="si",1,0))
+df_alumno$tiene_consola<- as.logical(ifelse(df_alumno$tiene_consola=="si",1,0))
+df_alumno$tiene_smarttv<- as.logical(ifelse(df_alumno$tiene_smarttv=="si",1,0))
+df_alumno$tiene_smartphone<- as.logical(ifelse(df_alumno$tiene_smartphone=="si",1,0))
+df_alumno$tiene_internet_alumno<- as.logical(ifelse(df_alumno$tiene_internet.x=="si",1,0))
+df_alumno$tiene_internet_escuela<- as.logical(ifelse(df_alumno$tiene_internet.y=="t",1,0))
